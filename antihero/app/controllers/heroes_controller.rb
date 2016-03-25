@@ -1,9 +1,12 @@
 class HeroesController < ApplicationController
+    helper_method :show_item
+
     def index
         @heroes = Hero.all
     end
 
     def show
+        @opts = get_opts()
         @hero = Hero.find(params[:id])
     end
 
@@ -39,4 +42,33 @@ class HeroesController < ApplicationController
         def hero_params
             params.require(:hero).permit(:name, :spec_name, :spec_url)
         end
+
+        def get_opts
+            return [
+                ['Unique', 'unique'],
+                ['Uru-Forged', 'uru-forged'],
+                ['Ring', 'ring'],
+                ['Legendary', 'legendary'],
+                ['Artifact', 'artifact'],
+                ['Misc', 'misc']
+            ]
+        end
+
+        def show_item(missing)
+            s = ""
+            n = nil
+            get_opts().each do |x|
+                if x[1] == missing.item_type
+                    n = x[0]
+                    break
+                end
+            end
+            if n
+                s = '<span title="'+n+'" class="item-type-'+n+'">'+missing.name+'</span>'
+            else
+                s = missing.name
+            end
+            return s.html_safe
+        end
+
 end
