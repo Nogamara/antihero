@@ -1,0 +1,22 @@
+<h2>Item: <%= @item.name %></h2>
+
+<table>
+<tr>
+  <th>Name</th>
+  <th>Current</th>
+  <th>Status</th>
+  <th></th>
+</tr>
+<tr>
+  <td><%= @item.name %> 
+  <%= @item.item_type %></td>
+  <td><%= @item.current %></td>
+  <td><%= @item.status %></td>
+  <td><%= @item.note %></td>
+</tr>
+</table>
+
+<p>
+<%= link_to 'Back to hero', hero_path(@hero) %> |
+<%= link_to 'Back to hero list', heroes_path %>
+</p>

@@ -5,6 +5,8 @@
   <span><%= @hero.updated_at %></span>
 </div>
 
+<table><tr><td valign="top">
+
 <h2>Missing items:</h2>
 
 <table>
@@ -17,12 +19,33 @@
 <tr>
   <td><%= show_item(mi) %></td>
   <td><%= mi.current %></td>
-  <td><%= mi.note %></td>
+  <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
 </tr>
 <% end %>
 </table>
 
-<h2>Add missing item</h2>
+</td><td>&nbsp;</td><td valign="top">
+
+<h2>Equipped items:</h2>
+
+<table>
+<tr>
+  <th>Name</th>
+  <th>Current</th>
+  <th></th>
+</tr>
+<% @hero.items.where(status: "equipped").each do |mi| %>
+<tr>
+  <td><%= show_item(mi) %></td>
+  <td><%= mi.current %></td>
+  <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
+</tr>
+<% end %>
+</table>
+
+</td></tr></table>
+
+<h2>Add item</h2>
 
 <%= form_for([@hero, @hero.items.build]) do |f| %>
   <p>
@@ -31,7 +54,11 @@
   </p>
   <p>
     <%= f.label :item_type %><br>
-    <%= select_tag(:item_type, options_for_select(@opts)) %>
+    <%= select_tag("item[type]", options_for_select(@opts_type)) %>
+  </p>
+  <p>
+    <%= f.label :status %><br>
+    <%= select_tag("item[status]", options_for_select(@opts_status)) %>
   </p>
   <p>
     <%= f.label :current %><br>
@@ -47,6 +74,6 @@
 <% end %>
 
 <p>
-<%= link_to 'Edit', edit_hero_path(@hero) %> |
-<%= link_to 'Back', heroes_path %>
+<%= link_to 'Edit hero', edit_hero_path(@hero) %> |
+<%= link_to 'Back to hero list', heroes_path %>
 </p>

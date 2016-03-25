@@ -6,7 +6,8 @@ class HeroesController < ApplicationController
     end
 
     def show
-        @opts = get_opts_item_type()
+        @opts_type = get_opts_item_type()
+        @opts_status = get_opts_item_status()
         @hero = Hero.find(params[:id])
     end
 
@@ -50,6 +51,8 @@ class HeroesController < ApplicationController
                 ['Ring', 'ring'],
                 ['Legendary', 'legendary'],
                 ['Artifact', 'artifact'],
+                ['Insignia', 'insignia'],
+                ['Medallion', 'medallion'],
                 ['Misc', 'misc']
             ]
         end
