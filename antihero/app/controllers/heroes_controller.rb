@@ -54,19 +54,19 @@ class HeroesController < ApplicationController
             ]
         end
 
-        def show_item(missing)
+        def show_item(item)
             s = ""
             n = nil
             get_opts().each do |x|
-                if x[1] == missing.item_type
+                if x[1] == item.item_type
                     n = x[0]
                     break
                 end
             end
             if n
-                s = '<span title="'+n+'" class="item-type-'+n+'">'+missing.name+'</span>'
+                s = '<span title="'+n+'" class="item-type-'+n+'">'+item.name+'</span>'
             else
-                s = missing.name
+                s = item.name
             end
             return s.html_safe
         end

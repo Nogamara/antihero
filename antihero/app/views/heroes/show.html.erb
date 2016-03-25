@@ -13,7 +13,7 @@
   <th>Current</th>
   <th></th>
 </tr>
-<% @hero.missings.each do |mi| %>
+<% @hero.items.each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
   <td><%= mi.current %></td>
@@ -24,7 +24,7 @@
 
 <h2>Add missing item</h2>
 
-<%= form_for([@hero, @hero.missings.build]) do |f| %>
+<%= form_for([@hero, @hero.items.build]) do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>

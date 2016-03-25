@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20160325182501) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "missings", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "item_type"
     t.string   "current"
     t.string   "note"
     t.integer  "hero_id"
@@ -31,6 +31,6 @@ ActiveRecord::Schema.define(version: 20160325182501) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "missings", ["hero_id"], name: "index_missings_on_hero_id"
+  add_index "items", ["hero_id"], name: "index_items_on_hero_id"
 
 end

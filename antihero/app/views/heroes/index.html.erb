@@ -12,7 +12,7 @@
     <tr>
       <td><%= link_to hero.name, hero_path(hero) %></td>
       <td><%= link_to hero.spec_name, hero.spec_url %></td>
-      <td><%= hero.missings.length %>
+      <td><%= hero.items.length %>
       <td><%= hero.updated_at %>
       <%= link_to "edit", edit_hero_path(hero) %></td>
     </tr>
