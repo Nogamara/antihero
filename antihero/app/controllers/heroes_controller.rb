@@ -8,14 +8,31 @@ class HeroesController < ApplicationController
     end
 
     def new
+        @hero = Hero.new
+    end
+
+    def edit
+        @hero = Hero.find(params[:id])
     end
 
     def create
-        #render plain: params[:hero].inspect
         @hero = Hero.new(hero_params)
 
-        @hero.save
-        redirect_to @hero
+        if @hero.save
+            redirect_to @hero
+        else
+            render 'new'
+        end
+    end
+
+    def update
+        @hero = Hero.find(params[:id])
+
+        if @hero.update(hero_params)
+            redirect_to @hero
+        else
+            render 'edit'
+        end
     end
 
     private
