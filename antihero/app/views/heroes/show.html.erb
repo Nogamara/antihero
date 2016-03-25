@@ -13,7 +13,7 @@
   <th>Current</th>
   <th></th>
 </tr>
-<% @hero.items.each do |mi| %>
+<% @hero.items.where(status: "missing").each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
   <td><%= mi.current %></td>

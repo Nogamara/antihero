@@ -6,7 +6,7 @@ class HeroesController < ApplicationController
     end
 
     def show
-        @opts = get_opts()
+        @opts = get_opts_item_type()
         @hero = Hero.find(params[:id])
     end
 
@@ -43,7 +43,7 @@ class HeroesController < ApplicationController
             params.require(:hero).permit(:name, :spec_name, :spec_url)
         end
 
-        def get_opts
+        def get_opts_item_type
             return [
                 ['Unique', 'unique'],
                 ['Uru-Forged', 'uru-forged'],
@@ -54,10 +54,17 @@ class HeroesController < ApplicationController
             ]
         end
 
+        def get_opts_item_status
+            return [
+                ['Missing', 'missing'],
+                ['Equipped', 'equipped'],
+            ]
+        end
+
         def show_item(item)
             s = ""
             n = nil
-            get_opts().each do |x|
+            get_opts_item_type().each do |x|
                 if x[1] == item.item_type
                     n = x[0]
                     break
