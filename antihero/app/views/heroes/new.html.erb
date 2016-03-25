@@ -20,3 +20,18 @@
     <%= f.submit %>
   </p>
 <% end %>
+
+<script>
+$('input[id=hero_spec_url]').on('change', function() {
+    var x1 = "http://";
+    var x2 = "marvelheroes.info/";
+    if (this.value.substring(0, x2.length) == x2 || this.value.substring(0, x1.length+x2.length) == x1 + x2) {
+        $.ajax({
+            url: "/welcome/title?url="+this.value,
+            complete: function(data) {
+                $('input[id=hero_spec_name]').val(data.responseText);
+            }
+        });
+    }
+});
+</script>
