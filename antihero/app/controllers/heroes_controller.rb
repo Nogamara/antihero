@@ -7,6 +7,7 @@ class HeroesController < ApplicationController
 
     def show
         @hero = Hero.find(params[:id])
+        @item = @hero.items.build
     end
 
     def new

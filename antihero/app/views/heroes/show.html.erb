@@ -53,51 +53,23 @@
 
 </td></tr></table>
 
-<h2>Add item</h2>
-
-<%= form_for([@hero, @hero.items.build]) do |f| %>
-  <p>
-    <%= f.label :name, "Item" %><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :level, "Item Level" %><br>
-    <%= f.text_field :level %>
-  </p>
-  <p>
-    <%= f.label :ib_id, "Item Base ID" %><br>
-    <%= f.text_field :ib_id %>
-  </p>
-  <p>
-    <%= f.label :item_type, "Type" %><br>
-    <%= select_tag("item[type]", options_for_select(item_types)) %>
-  </p>
-  <p>
-    <%= f.label :status %><br>
-    <%= select_tag("item[status]", options_for_select(item_statuses)) %>
-  </p>
-  <p>
-    <%= f.label :current, "Current Item" %><br>
-    <%= f.text_field :current %>
-  </p>
-  <p>
-    <%= f.label :current_level, "Current Item Level" %><br>
-    <%= f.text_field :current_level %>
-  </p>
-  <p>
-    <%= f.label :current_ib_id, "Current Item Base ID" %><br>
-    <%= f.text_field :current_ib_id %>
-  </p>
-  <p>
-    <%= f.label :note %><br>
-    <%= f.text_field :note %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<h2>Add Item</h2>
+<div id="show-hero-add-item">
+<div id="show-hero-add-item-link">show form</div>
+<div id="show-hero-add-item-form">
+<%= render :partial => 'items/form', :@hero => @hero, :@item => @hero.items.build %>
+</div>
+</div>
 
 <p>
 <%= link_to 'Edit hero', edit_hero_path(@hero) %> |
 <%= link_to 'Back to hero list', heroes_path %>
 </p>
+
+<script>
+$('#show-hero-add-item-form').hide();
+
+$('#show-hero-add-item-link').on('click', function() {
+    $('#show-hero-add-item-form').toggle();
+});
+</script>

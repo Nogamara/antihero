@@ -1,4 +1,4 @@
-<h1>New Hero</h1>
+<h1>Add new Hero</h1>
 
 <%= form_for :hero, url: heroes_path do |f| %>
   <p>
@@ -7,13 +7,13 @@
   </p>
 
   <p>
-    <%= f.label :spec_name %><br>
-    <%= f.text_field :spec_name %>
+    <%= f.label :spec_url, "Spec URL (Marvel Heroes Item Base)" %><br>
+    <%= f.text_field :spec_url %>
   </p>
 
   <p>
-    <%= f.label :spec_url %><br>
-    <%= f.text_field :spec_url %>
+    <%= f.label :spec_name, "Spec Name" %><br>
+    <%= f.text_field :spec_name %>
   </p>
 
   <p>
@@ -22,7 +22,7 @@
 <% end %>
 
 <p>
-<%= link_to 'Back', heroes_path %>
+<%= link_to 'Back to hero list', heroes_path %>
 </p>
 
 <script>
