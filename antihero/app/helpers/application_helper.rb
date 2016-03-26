@@ -23,6 +23,14 @@ module ApplicationHelper
         IB_BASE_URL
     end
 
+    def shorten(s, len=0)
+        len = 30 unless len > 0
+        if s.length > len
+            return s[0..len] + "..."
+        end
+        s
+    end
+
     def show_item(item)
         show_item_both(item, :item)
     end

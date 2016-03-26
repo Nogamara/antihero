@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326093700) do
+ActiveRecord::Schema.define(version: 20160326113222) do
 
   create_table "heroes", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160326093700) do
     t.string   "spec_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "level"
   end
 
   create_table "items", force: :cascade do |t|

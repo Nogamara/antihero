@@ -40,6 +40,6 @@ class HeroesController < ApplicationController
 
     private
         def hero_params
-            params.require(:hero).permit(:name, :spec_name, :spec_url)
+            params.require(:hero).permit(:name, :level, :spec_name, :spec_url)
         end
 end

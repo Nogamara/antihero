@@ -2,21 +2,22 @@
 
 <table>
   <tr>
-    <th>Hero</th>
+    <th colspan="2">Hero</th>
     <th>Spec</th>
-    <th>Missing</th>
-    <th>Equipped</th>
-    <th>Updated</th>
+    <th>Miss.</th>
+    <th>Equ.</th>
+    <th colspan="2">Updated</th>
   </tr>
 
   <% @heroes.each do |hero| %>
     <tr>
       <td><%= link_to hero.name, hero_path(hero) %></td>
-      <td><%= link_to hero.spec_name, hero.spec_url %></td>
-      <td><%= hero.items.length %>
-      <td><%= hero.items.length %>
-      <td><%= hero.updated_at %>
-      <%= link_to "edit", edit_hero_path(hero) %></td>
+      <td class="hero-level"><%= hero.level%></td>
+      <td><%= link_to shorten(hero.spec_name), hero.spec_url, :title => hero.spec_name %></td>
+      <td><%= hero.items.length %></td>
+      <td><%= hero.items.length %></td>
+      <td><%= hero.updated_at %></td>
+      <td><%= link_to "edit", edit_hero_path(hero) %></td>
     </tr>
   <% end %>
 </table>
