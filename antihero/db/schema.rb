@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325210239) do
+ActiveRecord::Schema.define(version: 20160326082607) do
 
   create_table "heroes", force: :cascade do |t|
     t.string   "name"
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 20160325210239) do
     t.string   "current"
     t.string   "note"
     t.integer  "hero_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "status"
+    t.string   "ib_id"
+    t.string   "current_ib_id"
   end
 
   add_index "items", ["hero_id"], name: "index_items_on_hero_id"

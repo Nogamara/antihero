@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
     private
         def item_params
-            params.require(:item).permit(:name, :item_type, :status, :current, :note)
+            params.require(:item).permit(:name, :item_type, :status, :current, :note, :ib_id, :current_ib_id)
         end
 
         def get_opts_item_type

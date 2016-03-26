@@ -22,6 +22,11 @@
   </p>
 
   <p>
+    <%= f.label :ib_id %><br>
+    <%= f.text_field :ib_id %>
+  </p>
+
+  <p>
     <%= f.label :item_type %><br>
     <%= select_tag("item[item_type]", options_for_select(@opts_type, @item.item_type.to_s)) %>
   </p>
@@ -35,6 +40,11 @@
   <p>
     <%= f.label :current %><br>
     <%= f.text_field :current %>
+  </p>
+
+  <p>
+    <%= f.label :current_ib_id %><br>
+    <%= f.text_field :current_ib_id %>
   </p>
 
   <p>

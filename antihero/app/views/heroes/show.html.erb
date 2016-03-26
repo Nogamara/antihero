@@ -18,7 +18,7 @@
 <% @hero.items.where(status: "missing").each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
-  <td><%= mi.current %></td>
+  <td><%= show_current(mi) %></td>
   <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
 </tr>
 <% end %>
@@ -37,7 +37,7 @@
 <% @hero.items.where(status: "equipped").each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
-  <td><%= mi.current %></td>
+  <td><%= show_current(mi) %></td>
   <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
 </tr>
 <% end %>
@@ -53,6 +53,10 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label :ib_id %><br>
+    <%= f.text_field :ib_id %>
+  </p>
+  <p>
     <%= f.label :item_type %><br>
     <%= select_tag("item[type]", options_for_select(@opts_type)) %>
   </p>
@@ -63,6 +67,10 @@
   <p>
     <%= f.label :current %><br>
     <%= f.text_field :current %>
+  </p>
+  <p>
+    <%= f.label :current_ib_id %><br>
+    <%= f.text_field :current_ib_id %>
   </p>
   <p>
     <%= f.label :note %><br>
