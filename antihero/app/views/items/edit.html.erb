@@ -28,13 +28,13 @@
 
   <p>
     <%= f.label :item_type %><br>
-    <%= select_tag("item[item_type]", options_for_select(@opts_type, @item.item_type.to_s)) %>
+    <%= select_tag("item[item_type]", options_for_select(item_types, @item.item_type.to_s)) %>
   </p>
 
 
   <p>
     <%= f.label :status %><br>
-    <%= select_tag("item[status]", options_for_select(@opts_status, @item.status.to_s)) %>
+    <%= select_tag("item[status]", options_for_select(item_statuses, @item.status.to_s)) %>
   </p>
 
   <p>

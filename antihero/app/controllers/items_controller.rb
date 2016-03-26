@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+    include ApplicationHelper
+
     def create
         @hero = Hero.find(params[:hero_id])
         @item = @hero.items.create(item_params)
@@ -13,8 +15,6 @@ class ItemsController < ApplicationController
     def edit
         @hero = Hero.find(params[:hero_id])
         @item = Item.find(params[:id])
-        @opts_type = get_opts_item_type()
-        @opts_status = get_opts_item_status()
     end
 
     def update
@@ -31,25 +31,5 @@ class ItemsController < ApplicationController
     private
         def item_params
             params.require(:item).permit(:name, :item_type, :status, :current, :note, :ib_id, :current_ib_id)
-        end
-
-        def get_opts_item_type
-            return [
-                ['Unique', 'unique'],
-                ['Uru-Forged', 'uru-forged'],
-                ['Ring', 'ring'],
-                ['Legendary', 'legendary'],
-                ['Artifact', 'artifact'],
-                ['Insignia', 'insignia'],
-                ['Medallion', 'medallion'],
-                ['Misc', 'misc']
-            ]
-        end
-
-        def get_opts_item_status
-            return [
-                ['Missing', 'missing'],
-                ['Equipped', 'equipped'],
-            ]
         end
 end

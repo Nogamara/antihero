@@ -58,11 +58,11 @@
   </p>
   <p>
     <%= f.label :item_type %><br>
-    <%= select_tag("item[type]", options_for_select(@opts_type)) %>
+    <%= select_tag("item[type]", options_for_select(item_types)) %>
   </p>
   <p>
     <%= f.label :status %><br>
-    <%= select_tag("item[status]", options_for_select(@opts_status)) %>
+    <%= select_tag("item[status]", options_for_select(item_statuses)) %>
   </p>
   <p>
     <%= f.label :current %><br>
