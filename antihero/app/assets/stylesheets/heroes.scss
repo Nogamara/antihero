@@ -2,13 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$link-color: #0099ff;
+$link-color-bg: #e0eeff;
+
+$item-link-color: #444;
+$item-link-color-bg: #e0eeff;
+
 $artifact-bg: #d24b43;
 $uruforged-bg: #986698;
 $legendary-bg: #FE9800;
 $unique-bg: #AF7635;
 
+@font-face: {
+  font-family: "Play";
+  src: local("Play"), url(/assets/Play-Regular.ttf);
+}
+
+body {
+  font-family: "Segoe UI";
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: $link-color-bg;
+}
+
+input[type=text] {
+    width: 400px;
+}
+
 .item-type {
   padding: 3px;
+  a {
+    color: $item-link-color;
+  }
 }
 
 .item-type-artifact {
