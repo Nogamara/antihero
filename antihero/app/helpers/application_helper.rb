@@ -15,6 +15,7 @@ module ApplicationHelper
             ['Artifact', 'artifact'],
             ['Insignia', 'insignia'],
             ['Medallion', 'medallion'],
+            ['Relic', 'relic'],
             ['Misc', 'misc']
         ]
     end

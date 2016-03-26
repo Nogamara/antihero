@@ -12,6 +12,10 @@ $artifact-bg: #d24b43;
 $uruforged-bg: #986698;
 $legendary-bg: #FE9800;
 $unique-bg: #AF7635;
+$relic-bg: #e242a3;
+$ring-bg: #eee;
+$insignia-bg: #fef;
+$medallion-bg: #dff;
 
 @font-face: {
   font-family: "Play";
@@ -58,6 +62,10 @@ a:hover {
   background-color: $link-color-bg;
 }
 
+td {
+  padding: 2px;
+}
+
 input[type=text] {
     width: 400px;
 }
@@ -87,4 +95,20 @@ input[type=text] {
 
 .item-type-unique {
   background-color: $unique-bg
+}
+
+.item-type-insignia {
+  background-color: $insignia-bg
+}
+
+.item-type-medallion {
+  background-color: $medallion-bg
+}
+
+.item-type-relic {
+  background-color: $relic-bg
+}
+
+.item-type-ring {
+  background-color: $ring-bg
 }
