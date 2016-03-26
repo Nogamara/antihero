@@ -1,3 +1,28 @@
 // Place all the styles related to the heroes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$artifact-bg: #d24b43;
+$uruforged-bg: #986698;
+$legendary-bg: #FE9800;
+$unique-bg: #AF7635;
+
+.item-type {
+  padding: 3px;
+}
+
+.item-type-artifact {
+  background-color: $artifact-bg
+}
+
+.item-type-uru-forged {
+  background-color: $uruforged-bg
+}
+
+.item-type-legendary {
+  background-color: $legendary-bg
+}
+
+.item-type-unique {
+  background-color: $unique-bg
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326082607) do
+ActiveRecord::Schema.define(version: 20160326093700) do
 
   create_table "heroes", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20160326082607) do
     t.string   "status"
     t.string   "ib_id"
     t.string   "current_ib_id"
+    t.integer  "level"
+    t.integer  "current_level"
   end
 
   add_index "items", ["hero_id"], name: "index_items_on_hero_id"

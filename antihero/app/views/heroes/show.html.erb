@@ -12,13 +12,17 @@
 <table>
 <tr>
   <th>Name</th>
+  <th>Lvl</th>
   <th>Current</th>
+  <th>Lvl</th>
   <th></th>
 </tr>
 <% @hero.items.where(status: "missing").each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
+  <td><%= mi.level %></td>
   <td><%= show_current(mi) %></td>
+  <td><%= mi.current_level %></td>
   <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
 </tr>
 <% end %>
@@ -31,13 +35,17 @@
 <table>
 <tr>
   <th>Name</th>
+  <th>Lvl</th>
   <th>Current</th>
+  <th>Lvl</th>
   <th></th>
 </tr>
 <% @hero.items.where(status: "equipped").each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
+  <td><%= mi.level %></td>
   <td><%= show_current(mi) %></td>
+  <td><%= mi.current_level %></td>
   <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
 </tr>
 <% end %>
@@ -49,15 +57,19 @@
 
 <%= form_for([@hero, @hero.items.build]) do |f| %>
   <p>
-    <%= f.label :name %><br>
+    <%= f.label :name, "Item" %><br>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :ib_id %><br>
+    <%= f.label :level, "Item Level" %><br>
+    <%= f.text_field :level %>
+  </p>
+  <p>
+    <%= f.label :ib_id, "Item Base ID" %><br>
     <%= f.text_field :ib_id %>
   </p>
   <p>
-    <%= f.label :item_type %><br>
+    <%= f.label :item_type, "Type" %><br>
     <%= select_tag("item[type]", options_for_select(item_types)) %>
   </p>
   <p>
@@ -65,11 +77,15 @@
     <%= select_tag("item[status]", options_for_select(item_statuses)) %>
   </p>
   <p>
-    <%= f.label :current %><br>
+    <%= f.label :current, "Current Item" %><br>
     <%= f.text_field :current %>
   </p>
   <p>
-    <%= f.label :current_ib_id %><br>
+    <%= f.label :current_level, "Current Item Level" %><br>
+    <%= f.text_field :current_level %>
+  </p>
+  <p>
+    <%= f.label :current_ib_id, "Current Item Base ID" %><br>
     <%= f.text_field :current_ib_id %>
   </p>
   <p>

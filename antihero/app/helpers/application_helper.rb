@@ -33,7 +33,7 @@ module ApplicationHelper
         base_url = "http://marvelheroes.info"
         item_types().each do |x|
             if x[1] == item.item_type
-                n = x[0]
+                n = x[1]
                 break
             end
         end
@@ -46,15 +46,16 @@ module ApplicationHelper
             name = item.current
         end
 
-        if ib_id
+        if ib_id and ib_id != ""
             if n
-                s = '<a href="'+base_url+ib_id+'" title="'+n+'" class="item-type-'+n+'">'+name+'</a>'
+                s = '<span title="'+n+'" class="item-type item-type-'+n+'">'
+                s = s + '<a href="'+base_url+ib_id+'">'+name+'</a></span>'
             else
                 s = '<a href="'+base_url+ib_id+'">'+name+'</a>'
             end
         else
             if n
-                s = '<span title="'+n+'" class="item-type-'+n+'">'+name+'</span>'
+                s = '<span title="'+n+'" class="item-type item-type-'+n+'">'+name+'</span>'
             else
                 s = name
             end

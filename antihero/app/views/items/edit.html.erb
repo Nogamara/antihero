@@ -17,17 +17,21 @@
   <% end %>
 
   <p>
-    <%= f.label :name %><br>
+    <%= f.label :name, "Item" %><br>
     <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :level, "Item Level" %><br>
+    <%= f.text_field :level %>
   </p>
 
   <p>
-    <%= f.label :ib_id %><br>
+    <%= f.label :ib_id, "Item Base ID" %><br>
     <%= f.text_field :ib_id %>
   </p>
 
   <p>
-    <%= f.label :item_type %><br>
+    <%= f.label :item_type, "Type" %><br>
     <%= select_tag("item[item_type]", options_for_select(item_types, @item.item_type.to_s)) %>
   </p>
 
@@ -38,12 +42,17 @@
   </p>
 
   <p>
-    <%= f.label :current %><br>
+    <%= f.label :current, "Current Item" %><br>
     <%= f.text_field :current %>
   </p>
 
   <p>
-    <%= f.label :current_ib_id %><br>
+    <%= f.label :current_level, "Current Item Level" %><br>
+    <%= f.text_field :current_level %>
+  </p>
+
+  <p>
+    <%= f.label :current_ib_id, "Current Item Base ID" %><br>
     <%= f.text_field :current_ib_id %>
   </p>
 
