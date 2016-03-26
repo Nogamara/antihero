@@ -18,8 +18,35 @@ $unique-bg: #AF7635;
   src: local("Play"), url(/assets/Play-Regular.ttf);
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   font-family: "Segoe UI";
+  margin: 0;
+  padding: 0;
+}
+
+#page-main {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#page-body {
+  margin: 10px;
+}
+
+#page-header {
+  background-color: #eee;
+  margin: 0;
+  padding: 5px;
+}
+
+#page-footer {
+
 }
 
 a {
