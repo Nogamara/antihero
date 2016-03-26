@@ -18,7 +18,7 @@
   <th>Lvl</th>
   <th></th>
 </tr>
-<% @hero.items.where(status: "missing").each do |mi| %>
+<% @items_missing.each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
   <td><%= mi.level %></td>
@@ -41,7 +41,7 @@
   <th>Lvl</th>
   <th></th>
 </tr>
-<% @hero.items.where(status: "equipped").each do |mi| %>
+<% @items_equipped.each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
   <td><%= mi.level %></td>

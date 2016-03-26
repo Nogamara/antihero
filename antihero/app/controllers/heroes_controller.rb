@@ -2,12 +2,14 @@ class HeroesController < ApplicationController
     include ApplicationHelper
 
     def index
-        @heroes = Hero.all
+        @heroes = Hero.order(:name).all
     end
 
     def show
         @hero = Hero.find(params[:id])
         @item = @hero.items.build
+        @items_missing = @hero.items.where(status: "missing")
+        @items_equipped = @hero.items.where(status: "equipped")
     end
 
     def new
