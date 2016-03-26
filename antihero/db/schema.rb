@@ -11,18 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326135537) do
+ActiveRecord::Schema.define(version: 20160326145011) do
+
+  create_table "hero_classes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "heroes", force: :cascade do |t|
     t.string   "name"
     t.string   "spec_name"
     t.string   "spec_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "level"
     t.integer  "user_id"
+    t.integer  "hero_class_id"
   end
 
+  add_index "heroes", ["hero_class_id"], name: "index_heroes_on_hero_class_id"
   add_index "heroes", ["user_id"], name: "index_heroes_on_user_id"
 
   create_table "items", force: :cascade do |t|

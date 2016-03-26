@@ -28,13 +28,18 @@
   </p>
 
   <p>
+    <%= f.label :spec_url %><br>
+    <%= f.text_field :spec_url %>
+  </p>
+
+  <p>
     <%= f.label :spec_name %><br>
     <%= f.text_field :spec_name %>
   </p>
 
   <p>
-    <%= f.label :spec_url %><br>
-    <%= f.text_field :spec_url %>
+    <%= f.label :hero_class_id, "Hero (Class)" %><br>
+    <%= select_tag("hero[hero_class_id]", options_for_select(as_opt, @hero.hero_class_id)) %>
   </p>
 
   <p>

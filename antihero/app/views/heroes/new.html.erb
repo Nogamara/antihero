@@ -23,6 +23,11 @@
   </p>
 
   <p>
+    <%= f.label :hero_class_id, "Hero (Class)" %><br>
+    <%= select_tag("hero[hero_class_id]", options_for_select(as_opt)) %>
+  </p>
+
+  <p>
     <%= f.submit %>
   </p>
 <% end %>
@@ -40,7 +45,17 @@ $('input[id=hero_spec_url]').on('change', function() {
         $.ajax({
             url: "/welcome/title?url="+this.value,
             complete: function(data) {
-                $('input[id=hero_spec_name]').val(data.responseText);
+                var s = data.responseText.split("||");
+                if (s[0].length > 0) {
+                    $('input[id=hero_spec_name]').val(s[0]);
+                }
+                if (s.length > 1) {
+                    $("#hero_hero_class option").each(function() {
+                        if ($(this).text() == s[1]) {
+                            $(this).attr('selected','selected');
+                        }
+                    });
+                }
             }
         });
     }

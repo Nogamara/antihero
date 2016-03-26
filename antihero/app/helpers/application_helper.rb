@@ -20,6 +20,14 @@ module ApplicationHelper
         ]
     end
 
+  def as_opt
+    a = []
+    HeroClass.all.each do |hc|
+      a.push [hc.name, hc.id]
+    end
+    a
+  end
+
     def ib_base_url
         IB_BASE_URL
     end
