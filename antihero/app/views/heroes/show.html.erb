@@ -1,9 +1,11 @@
 <% content_for :title, @hero.name %>
-<h2><%= @hero.name %> <span class="hero-level"><%= @hero.level %></span></h2>
+<h1><%= @hero.name %> <span class="hero-level"><%= @hero.level %>
+(<%= link_to 'edit', edit_hero_path(@hero) %>)
+</span></h1>
 
 <div>
-  Spec: <a href="<%= @hero.spec_url %>"><%= @hero.spec_name %></a><br />
-  <span><%= @hero.updated_at %></span>
+<span class="right last-update">Last updated:<br><%= @hero.updated_at %></span>
+<a href="<%= @hero.spec_url %>"><%= @hero.spec_name %></a><br />
 </div>
 
 <table><tr><td valign="top">
@@ -64,7 +66,6 @@
 
 <hr>
 <p>
-<%= link_to 'Edit hero', edit_hero_path(@hero) %> |
 <%= link_to 'Back to hero list', heroes_path %>
 </p>
 

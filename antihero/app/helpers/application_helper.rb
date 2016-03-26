@@ -16,6 +16,7 @@ module ApplicationHelper
             ['Insignia', 'insignia'],
             ['Medallion', 'medallion'],
             ['Relic', 'relic'],
+            ['Core', 'core'],
             ['Misc', 'misc']
         ]
     end
