@@ -83,4 +83,22 @@ module ApplicationHelper
         end
         return s.html_safe
     end
+
+    def ago(t)
+        now = Time.now().utc.to_i
+        diff = now - t.to_i
+        if diff > 2592000
+            return sprintf("%dm ago", (diff / 2592000))
+        elsif diff > 604800
+            return sprintf("%dw ago", (diff / 604800))
+        elsif diff > 86400
+            return sprintf("%dd ago", (diff / 86400))
+        elsif diff > 3600
+            return sprintf("%dh ago", (diff / 3600))
+        elsif diff > 60
+            return sprintf("%dm ago", (diff / 60))
+        else
+            return sprintf("%ds ago", diff)
+        end
+    end
 end

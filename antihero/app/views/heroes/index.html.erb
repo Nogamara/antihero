@@ -17,7 +17,7 @@
       <td><%= link_to shorten(hero.spec_name), hero.spec_url, :title => hero.spec_name %></td>
       <td><%= hero.items.where(status: "missing").length %></td>
       <td><%= hero.items.where(status: "equipped").length %></td>
-      <td><%= hero.updated_at %></td>
+      <td><span title="<%= hero.updated_at %>"><%= ago(hero.updated_at) %></span></td>
       <td><%= link_to "edit", edit_hero_path(hero) %></td>
     </tr>
   <% end %>
