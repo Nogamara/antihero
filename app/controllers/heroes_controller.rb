@@ -8,8 +8,8 @@ class HeroesController < ApplicationController
     def show
         @hero = Hero.find(params[:id])
         @item = @hero.items.build
-        @items_missing = @hero.items.where(status: "missing")
-        @items_equipped = @hero.items.where(status: "equipped")
+        @items_missing = @hero.items.where(status: 'missing')
+        @items_equipped = @hero.items.where(status: 'equipped')
     end
 
     def new
@@ -41,7 +41,9 @@ class HeroesController < ApplicationController
     end
 
     private
+
         def hero_params
-            params.require(:hero).permit(:name, :level, :spec_name, :spec_url, :hero_class_id)
+            params.require(:hero).permit(:name, :level, :spec_name, :spec_url,
+                                         :hero_class_id)
         end
 end

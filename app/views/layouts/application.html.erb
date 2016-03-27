@@ -10,6 +10,7 @@
 <div id="page-main">
 <div id="page-header">
 antihero :: <a href="/heroes">all heroes</a> :: <a href="/heroes/new">add hero</a>
+<% if Rails.env.development? %><%= " :: <b>DEVELOPMENT</b>".html_safe %><% end %>
 </div>
 
 <div id="page-body">

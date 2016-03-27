@@ -1,1 +1,1 @@
-IB_BASE_URL = "http://marvelheroes.info"
+IB_BASE_URL = 'http://marvelheroes.info'.freeze

@@ -8,9 +8,9 @@ class WelcomeController < ApplicationController
         agent.get(params[:url])
 
         s = agent.page.title
-        s = s.sub(/ - ([\w ]+) - Marvel Heroes - Items Base$/, "||\\1")
+        s = s.sub(/ - ([\w ]+) - Marvel Heroes - Items Base$/, '||\\1')
     rescue
-        s = "||"
+        s = '||'
     end
 
     render plain: s

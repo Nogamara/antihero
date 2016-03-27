@@ -12,6 +12,6 @@ class Hero < ActiveRecord::Base
     end
 
     def set_updated
-        self.updated_at = Time.now()
+        self.updated_at = Time.now
     end
 end
