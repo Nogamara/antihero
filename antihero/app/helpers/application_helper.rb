@@ -75,7 +75,7 @@ module ApplicationHelper
                 s = '<a href="'+ib_base_url+ib_id+'">'+name+'</a>'
             end
         else
-            if n
+            if n and name.length > 0
                 s = '<span title="'+n+'" class="item-type item-type-'+n+'">'+name+'</span>'
             else
                 s = name
