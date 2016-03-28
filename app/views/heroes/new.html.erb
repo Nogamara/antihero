@@ -39,20 +39,23 @@
 
 <script>
 $('input[id=hero_spec_url]').on('change', function() {
-    var x1 = "http://";
-    var x2 = "marvelheroes.info/";
+    var x1 = 'http://';
+    var x2 = 'marvelheroes.info/';
     if (this.value.substring(0, x2.length) == x2 || this.value.substring(0, x1.length+x2.length) == x1 + x2) {
         $.ajax({
-            url: "/welcome/title?url="+this.value,
+            url: '/welcome/title?url='+this.value,
             complete: function(data) {
-                var s = data.responseText.split("||");
+                var s = data.responseText.split('||');
                 if (s[0].length > 0) {
                     $('input[id=hero_spec_name]').val(s[0]);
                 }
                 if (s.length > 1) {
-                    $("#hero_hero_class option").each(function() {
-                        if ($(this).text() == s[1]) {
-                            $(this).attr('selected','selected');
+                    $('#hero_hero_class_id option').each(function() {
+                        if ($(this).text().trim() == s[1].trim()) {
+                            $(this).attr('selected', 'selected');
+                            if ($('input[id=hero_name]').val().trim() == '') {
+                                $('input[id=hero_name]').val(s[1]);
+                            }
                         }
                     });
                 }
