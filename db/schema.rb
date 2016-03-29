@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326145011) do
+ActiveRecord::Schema.define(version: 20160329220704) do
+
+  create_table "base_items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "item_type"
+    t.integer  "ib_id"
+    t.string   "ib_extra"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hero_classes", force: :cascade do |t|
     t.string   "name"
@@ -19,20 +28,6 @@ ActiveRecord::Schema.define(version: 20160326145011) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "heroes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "spec_name"
-    t.string   "spec_url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "level"
-    t.integer  "user_id"
-    t.integer  "hero_class_id"
-  end
-
-  add_index "heroes", ["hero_class_id"], name: "index_heroes_on_hero_class_id"
-  add_index "heroes", ["user_id"], name: "index_heroes_on_user_id"
 
   create_table "hero_items", force: :cascade do |t|
     t.string   "name"
@@ -50,6 +45,20 @@ ActiveRecord::Schema.define(version: 20160326145011) do
   end
 
   add_index "hero_items", ["hero_id"], name: "index_hero_items_on_hero_id"
+
+  create_table "heroes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "spec_name"
+    t.string   "spec_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "level"
+    t.integer  "user_id"
+    t.integer  "hero_class_id"
+  end
+
+  add_index "heroes", ["hero_class_id"], name: "index_heroes_on_hero_class_id"
+  add_index "heroes", ["user_id"], name: "index_heroes_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

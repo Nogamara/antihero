@@ -1,25 +1,11 @@
 # antihero application helper
 module ApplicationHelper
     def item_statuses
-        [
-            ['Missing', 'missing'],
-            ['Equipped', 'equipped']
-        ]
+        ITEM_STATUSES
     end
 
     def item_types
-        [
-            ['Unique', 'unique'],
-            ['Uru-Forged', 'uru-forged'],
-            ['Ring', 'ring'],
-            ['Legendary', 'legendary'],
-            ['Artifact', 'artifact'],
-            ['Insignia', 'insignia'],
-            ['Medallion', 'medallion'],
-            ['Relic', 'relic'],
-            ['Core', 'core'],
-            ['Misc', 'misc']
-        ]
+        ITEM_TYPES
     end
 
   def as_opt
