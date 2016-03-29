@@ -1,5 +1,5 @@
 <% content_for :title, "Show Item" %>
-<h2>Item: <%= @item.name %></h2>
+<h2>Item: <%= @hero_item.name %></h2>
 
 <table>
 <tr>
@@ -9,10 +9,10 @@
   <th></th>
 </tr>
 <tr>
-  <td><%= @item.name %> <%= @item.item_type %></td>
-  <td><%= @item.current %></td>
-  <td><%= @item.status %></td>
-  <td><%= @item.note %></td>
+  <td><%= @hero_item.name %> <%= @hero_item.item_type %></td>
+  <td><%= @hero_item.current %></td>
+  <td><%= @hero_item.status %></td>
+  <td><%= @hero_item.note %></td>
 </tr>
 </table>
 

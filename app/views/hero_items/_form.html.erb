@@ -1,4 +1,4 @@
-<%= form_for([@hero, @item]) do |f| %>
+<%= form_for([@hero, @hero_item]) do |f| %>
 
   <% if @hero.errors.any? %>
     <div id="error_explanation">
@@ -13,14 +13,14 @@
       </ul>
     </div>
   <% end %>
-  <% if @item.errors.any? %>
+  <% if @hero_item.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@item.errors.count, "error") %> prohibited
+        <%= pluralize(@hero_item.errors.count, "error") %> prohibited
         this item from being saved:
       </h2>
       <ul>
-        <% @item.errors.full_messages.each do |msg| %>
+        <% @hero_item.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -43,13 +43,13 @@
 
   <p>
     <%= f.label :item_type, "Type" %><br>
-    <%= select_tag("item[item_type]", options_for_select(item_types, @item.item_type.to_s)) %>
+    <%= select_tag("hero_item[item_type]", options_for_select(item_types, @hero_item.item_type.to_s)) %>
   </p>
 
 
   <p>
     <%= f.label :status %><br>
-    <%= select_tag("item[status]", options_for_select(item_statuses, @item.status.to_s)) %>
+    <%= select_tag("hero_item[status]", options_for_select(item_statuses, @hero_item.status.to_s)) %>
   </p>
 
   <p>

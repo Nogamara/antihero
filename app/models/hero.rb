@@ -1,5 +1,5 @@
 class Hero < ActiveRecord::Base
-    has_many :items
+    has_many :hero_items
     validates :name, presence: true,
                      length: { minimum: 1 }
     before_save :set_default_user

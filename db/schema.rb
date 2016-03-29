@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20160326145011) do
   add_index "heroes", ["hero_class_id"], name: "index_heroes_on_hero_class_id"
   add_index "heroes", ["user_id"], name: "index_heroes_on_user_id"
 
-  create_table "items", force: :cascade do |t|
+  create_table "hero_items", force: :cascade do |t|
     t.string   "name"
     t.string   "item_type"
     t.string   "current"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160326145011) do
     t.integer  "current_level"
   end
 
-  add_index "items", ["hero_id"], name: "index_items_on_hero_id"
+  add_index "hero_items", ["hero_id"], name: "index_hero_items_on_hero_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

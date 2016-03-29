@@ -7,9 +7,9 @@ class HeroesController < ApplicationController
 
     def show
         @hero = Hero.find(params[:id])
-        @item = @hero.items.build
-        @items_missing = @hero.items.where(status: 'missing')
-        @items_equipped = @hero.items.where(status: 'equipped')
+        @hero_item = @hero.hero_items.build
+        @hero_items_missing = @hero.hero_items.where(status: 'missing')
+        @hero_items_equipped = @hero.hero_items.where(status: 'equipped')
     end
 
     def new

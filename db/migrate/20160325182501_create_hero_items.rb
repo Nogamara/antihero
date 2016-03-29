@@ -1,6 +1,6 @@
-class CreateItems < ActiveRecord::Migration
+class CreateHeroItems < ActiveRecord::Migration
   def change
-    create_table :items do |t|
+    create_table :hero_items do |t|
       t.string :name
       t.string :item_type
       t.string :current

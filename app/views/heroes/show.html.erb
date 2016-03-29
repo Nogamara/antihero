@@ -20,13 +20,13 @@
   <th>Lvl</th>
   <th></th>
 </tr>
-<% @items_missing.each do |mi| %>
+<% @hero_items_missing.each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
   <td><%= mi.level %></td>
   <td><%= show_current(mi) %></td>
   <td><%= mi.current_level %></td>
-  <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
+  <td><%= mi.note %> <%= link_to 'edit', edit_hero_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
 </tr>
 <% end %>
 </table>
@@ -43,13 +43,13 @@
   <th>Lvl</th>
   <th></th>
 </tr>
-<% @items_equipped.each do |mi| %>
+<% @hero_items_equipped.each do |mi| %>
 <tr>
   <td><%= show_item(mi) %></td>
   <td><%= mi.level %></td>
   <td><%= show_current(mi) %></td>
   <td><%= mi.current_level %></td>
-  <td><%= mi.note %> <%= link_to 'edit', edit_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
+  <td><%= mi.note %> <%= link_to 'edit', edit_hero_hero_item_path(:hero_id => mi.hero_id, :id => mi.id) %></td>
 </tr>
 <% end %>
 </table>
@@ -60,7 +60,7 @@
 <div id="show-hero-add-item">
 <div id="show-hero-add-item-link">toggle form</div>
 <div id="show-hero-add-item-form">
-<%= render :partial => 'items/form', :@hero => @hero, :@item => @hero.items.build %>
+<%= render :partial => 'hero_items/form', :@hero => @hero, :@hero_item => @hero.hero_items.build %>
 </div>
 </div>
 

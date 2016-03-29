@@ -1,4 +1,4 @@
-class Item < ActiveRecord::Base
+class HeroItem < ActiveRecord::Base
     belongs_to :hero
     before_save :clean_link
     before_save :set_updated
