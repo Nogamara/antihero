@@ -5,6 +5,7 @@ class HeroItem < ActiveRecord::Base
     before_save :sanitize
     before_save :clean_link
     before_save :set_updated
+    before_save :save_base_item
 
     def sanitize
         it = ITEM_TYPES_KEYS
@@ -29,4 +30,27 @@ class HeroItem < ActiveRecord::Base
         h.updated_at = now
         h.save
     end
+
+  def save_base_item
+    add_missing_base_item(self.name, self.item_type, self.ib_id)
+    add_missing_base_item(self.current, self.item_type, self.current_ib_id)
+  end
+
+  def add_missing_base_item(name, type, ib_id)
+    return if name.nil? || name.length < 1
+    bx = BaseItem.find_by name: name
+    if bx.nil?
+      bi = BaseItem.new
+      bi.name = name
+      bi.item_type = type
+      unless ib_id.nil?
+        a, b, c, *d = ib_id.split "/"
+        unless d.nil?
+          bi.ib_extra = d.join "/"
+        end
+        bi.ib_id = c
+      end
+      bi.save
+    end
+  end
 end
