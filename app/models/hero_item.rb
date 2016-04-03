@@ -17,9 +17,13 @@ class HeroItem < ActiveRecord::Base
     def clean_link
         if self.ib_id and self.ib_id.start_with?(IB_BASE_URL)
             self.ib_id.sub!(IB_BASE_URL, '')
+        elsif self.ib_id.to_i > 0
+            self.ib_id = "/item/#{self.ib_id}"
         end
         if self.current_ib_id and self.current_ib_id.start_with?(IB_BASE_URL)
             self.current_ib_id.sub!(IB_BASE_URL, '')
+        elsif self.current_ib_id.to_i > 0
+            self.current_ib_id = "/item/#{self.curent_ib_id}"
         end
     end
 

@@ -3,6 +3,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th colspan="2">Hero</th>
     <th>Spec</th>
     <th>Miss.</th>
@@ -12,6 +13,7 @@
 
   <% @heroes.each do |hero| %>
     <tr>
+      <td><% if hero.starred > -1 %><%= HERO_STARS[hero.starred] %><% end %></td>
       <td><%= link_to hero.name, hero_path(hero) %></td>
       <td class="hero-level"><%= hero.level%></td>
       <td><%= link_to shorten(hero.spec_name), hero.spec_url, :title => hero.spec_name %></td>

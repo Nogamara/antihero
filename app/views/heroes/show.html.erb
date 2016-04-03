@@ -1,7 +1,9 @@
 <% content_for :title, @hero.name %>
 <h1><%= @hero.name %> <span class="hero-level"><%= @hero.level %>
 (<%= link_to 'edit', edit_hero_path(@hero) %>)
-</span></h1>
+</span><span style="<% if @hero.color %>background-color: #<%= @hero.color %><% end %>">&nbsp;&nbsp;</span>
+<% if @hero.starred > -1 %><%= HERO_STARS[@hero.starred] %><% end %>
+</h1>
 
 <div>
 <span class="right last-update">Last updated:<br><%= @hero.updated_at %></span>

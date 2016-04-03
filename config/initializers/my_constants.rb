@@ -21,3 +21,5 @@ ITEM_TYPES = [
 ].freeze
 
 ITEM_TYPES_KEYS = ITEM_TYPES.map{|x| x[1]}
+
+HERO_STARS = ["☆", "★", "✪"].freeze
