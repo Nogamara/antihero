@@ -50,12 +50,12 @@ ActiveRecord::Schema.define(version: 20160403195555) do
     t.string   "name"
     t.string   "spec_name"
     t.string   "spec_url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "level"
     t.integer  "user_id"
     t.integer  "hero_class_id"
-    t.integer  "starred", default: 0
+    t.integer  "starred",       default: 0
     t.string   "color"
   end
 
